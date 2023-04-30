@@ -34,11 +34,11 @@ app.get('/countries', async (req, res) => {
 })
 
 app.get('/methane', async (req, res) => {
-    console.log('Hitting the endpoint')
     const query = req.query
-    console.log(query.query)
     
-    const url = `https://api.v2.emissions-api.org/api/v2/methane/statistics.json?country=${query.query}&begin=2019-02-01&end=2019-03-01`
+    console.log('Here is the query', query)
+    
+    const url = `https://api.v2.emissions-api.org/api/v2/methane/statistics.json?country=${query.q}&begin=2019-02-01&end=2019-03-01`
     
     try {
         const response = await axios.request(url)
@@ -46,7 +46,7 @@ app.get('/methane', async (req, res) => {
 
         const resultString = JSON.stringify(result)
 
-        res.set('Cache-Control', 'max-age=3600');
+        // res.set('Cache-Control', 'max-age=3600');
         res.send(resultString)
 
     } catch (err) {
