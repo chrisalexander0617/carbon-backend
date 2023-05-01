@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
       const resultString = JSON.stringify(result)
 
-      // res.set('Cache-Control', 'max-age=3600');
+      res.set('Cache-Control', 'max-age=3600');
       res.send(resultString)
 
   } catch (err) {
