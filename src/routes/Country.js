@@ -5,6 +5,7 @@ const cors = require('cors');
 
 router.get('/', async (req, res) => {
   const url = 'https://api.v2.emissions-api.org/api/v2/countries.json'
+  
   try {
       const response = await axios.request(url)
       const result = response.data
