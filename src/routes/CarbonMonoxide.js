@@ -23,7 +23,7 @@ router.get('/:country', async (req, res) => {
       res.send(resultString)
 
   } catch (err) {
-    res.status(500).send("Internal Server Error or incorrect params. Please check your country code and try again")
+    res.status(500).send(`Internal Server Error: ${err.message} (check country code)`)
   }
 });
 
