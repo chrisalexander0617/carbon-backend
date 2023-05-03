@@ -11,10 +11,6 @@ const baseUrl = process.env.BASE_URL || 'https://api.v2.emissions-api.org/api/v2
 router.get('/:country', async (req, res) => {
   const country = req.params.country;
 
-  // if (!/^[a-zA-Z]{2}$/.test(country)) {
-  //   return res.status(400).send('Invalid country code');
-  // }
-
   const url = `${baseUrl}/carbonmonoxide/statistics.json?country=${country}&begin=2019-02-01&end=2019-03-01`
   
   try {
@@ -27,7 +23,7 @@ router.get('/:country', async (req, res) => {
       res.send(resultString)
 
   } catch (err) {
-      res.status(500).send("Internal Server Error")
+    res.status(500).send("Internal Server Error or incorrect params. Please check your country code and try again")
   }
 });
 

@@ -3,10 +3,13 @@ const router = express.Router();
 const axios = require('axios');
 const cors = require('cors');
 
+const baseUrl = process.env.BASE_URL || 'https://api.v2.emissions-api.org/api/v2';
+
+
 router.get('/:country', async (req, res) => {
   const country = req.params.country;
 
-  const url = `https://api.v2.emissions-api.org/api/v2/methane/statistics.json?country=${country}&begin=2019-02-01&end=2019-03-01`
+  const url = `${baseUrl}/methane/statistics.json?country=${country}&begin=2019-02-01&end=2019-03-01`
   
   try {
       const response = await axios.request(url)
@@ -18,7 +21,7 @@ router.get('/:country', async (req, res) => {
       res.send(resultString)
 
   } catch (err) {
-      res.status(500).send("Internal Server Error")
+      res.status(500).send("Internal Server Error or incorrect params. Please check your country code and try again")
   }
 });
 

@@ -1,11 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const cors = require('cors');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
+
+const baseUrl = process.env.BASE_URL || 'https://api.v2.emissions-api.org/api/v2';
+
 router.get('/', async (req, res) => {
-  const url = 'https://api.v2.emissions-api.org/api/v2/countries.json'
+  const url = `${baseUrl}/countries.json`
   
   try {
       const response = await axios.request(url)
