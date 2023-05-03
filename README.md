@@ -22,4 +22,4 @@ You can also acceess the endpoints at these 3 endpoints
 
 https://carbon-backend-production.up.railway.app/methane/<country code>
 https://carbon-backend-production.up.railway.app/carbonmonoxide/<country code>
-https://carbon-backend-production.up.railway.app/coutries/
+https://carbon-backend-production.up.railway.app/countries/
