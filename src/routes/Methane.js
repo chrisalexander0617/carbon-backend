@@ -5,7 +5,6 @@ const cors = require('cors');
 
 const baseUrl = process.env.BASE_URL || 'https://api.v2.emissions-api.org/api/v2';
 
-
 router.get('/:country', async (req, res) => {
   const country = req.params.country;
 

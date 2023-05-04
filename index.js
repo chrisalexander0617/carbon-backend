@@ -15,6 +15,8 @@ app.use(
     })
 );
 app.use(cors())
+
+/* To use with server at https://carbon-backend-production.up.railway.app/ */
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); 
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -28,4 +30,5 @@ app.use('/carbonmonoxide', carbonmonoxideRoute)
 
 const port =  process.env.PORT || 3000
 
+/* 0.0.0.0 required to use with external web server */
 app.listen(port, '0.0.0.0', () => console.log('server started'))
